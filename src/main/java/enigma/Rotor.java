@@ -7,24 +7,42 @@ public class Rotor {
     private int[] bcipher = new int[26];
     private int notch1 = -1;
     private int notch2 = -1;
-
+    
+    /**
+     * 
+     * @return int
+     * Function : La fonctionr renvoie la position du rotor.
+     */
     public int getPosition() {
         return position;
     }
-
+    
+    /**
+     * 
+     * @param posn
+     * Function : Permet d'indiquer la fonction du rotor.
+     */
     public void setPosition(int posn) {
         position = posn;
     }
     
+    /**
+     * 
+     * @param str
+     * @param notches
+     * @return Rotor
+     * Function : La fonction permet de créer un nouveau rotor selon la chaîne de caractères rentrer.
+     * 			  Le fonction va faire tourner soit deux rotors, soit un seul selon la longueur du notches.
+     */
 	public static Rotor rotorFactory(String str, String notches){
-		char[] s = str.trim().replace(" ", "").toCharArray();
-		int[] cipher = new int[26];
-		for (int i = 0; i< 26; i++){
-			cipher[i] = toIndex(s[i]);
+		char[] s = str.trim().replace(" ", "").toCharArray(); //Permet de remplacer chaque espace par rien
+		int[] cipher = new int[26]; //Création d'un tableau d'entier
+		for (int i = 0; i< 26; i++){ 
+			cipher[i] = toIndex(s[i]); //Appel la fonction toIndex afin de remplir le tableau cipher.
 		}
-		s = notches.trim().replace(" and ", "").toCharArray();
+		s = notches.trim().replace(" and ", "").toCharArray(); //Remplace les and dans la chaîne notches par rien
 		if (s.length == 2){
-			return new Rotor(cipher, toIndex(s[0]), toIndex(s[1]));
+			return new Rotor(cipher, toIndex(s[0]), toIndex(s[1])); //Si la longueur de s = 2, on créé un rotor permettant 
 		} else {
 			return new Rotor(cipher, toIndex(s[0]));
 		}
