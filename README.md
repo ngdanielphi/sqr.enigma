@@ -19,11 +19,26 @@ Hereafter, for each classes give function to be tested. Remember that all functi
 ### Classe Machine
 #### functions
 
+advanceRotor
+convertChar
+
 ### Classe Reflector
 #### functions
 
+reflectorFactory
+convertForward
+
+
 ### Classe Rotor
-#### functions
+#### 
+
+Constructor are not tested, getter and setter too
+rotorFactory
+convertForward
+convertBackward
+advance
+toLetter
+toIndex
 
 ## Tricks & tips
 

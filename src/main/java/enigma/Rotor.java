@@ -42,13 +42,20 @@ public class Rotor {
 		}
 		s = notches.trim().replace(" and ", "").toCharArray(); //Remplace les and dans la chaîne notches par rien
 		if (s.length == 2){
-			return new Rotor(cipher, toIndex(s[0]), toIndex(s[1])); //Si la longueur de s = 2, on créé un rotor permettant 
+			return new Rotor(cipher, toIndex(s[0]), toIndex(s[1])); //Si la longueur de s = 2, on créé un rotor permettant de faire tourner 2 rotor 
 		} else {
 			return new Rotor(cipher, toIndex(s[0]));
 		}
 		
 	}
 	
+	/**
+	 * 
+	 * @param c
+	 * @param notch1
+	 * @param notch2
+	 * Function : Constructor of Rotor class creating a backcipher with 2 notch
+	 */
 	Rotor(int[] c, int notch1, int notch2) {
 		this.notch1 = notch1;
 		this.notch2 = notch2;
@@ -56,12 +63,24 @@ public class Rotor {
 		createBCipher();
 	}
 	
+	/**
+	 * 
+	 * @param c
+	 * @param notch1
+	 * Function : Constructor of Rotor class creating a backcipher with 1 notch
+	 */
 	Rotor(int[] c, int notch1) {
 		this.notch1 = notch1;
 		cipher = c;
 		createBCipher();
 	}
-
+	
+	/**
+	 * 
+	 * @param p
+	 * @return the position of the rotor
+	 * Function : 
+	 */
     public int convertForward(int p) {
         return ((cipher[((p+position)%26+26)%26]-position)%26+26)%26;
     }

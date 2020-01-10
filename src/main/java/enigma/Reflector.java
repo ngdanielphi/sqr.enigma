@@ -26,7 +26,7 @@ public class Reflector extends Rotor {
     }
 
     @Override
-    public int convertBackward(int unused) {
+    public int convertBackward(int unused) { 
         throw new UnsupportedOperationException();
     }
 
